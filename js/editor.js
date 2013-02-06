@@ -4,7 +4,8 @@ var editor = (function() {
 	var headerField, contentField, cleanSlate, lastType, currentNodeList, savedSelection;
 
 	// Editor Bubble elements
-	var textOptions, optionsBox, boldButton, italicButton, quoteButton, urlButton, urlInput;
+	var textOptions, optionsBox, boldButton, italicButton, strikeButton, quoteButton,
+			codeButton, urlButton, urlInput;
 
 	function init() {
 
@@ -48,6 +49,8 @@ var editor = (function() {
 				checkTextHighlighting( event );
 			}, 1);
 		};
+
+		// initShortcuts();
 	}
 
 	function bindElements() {
@@ -64,8 +67,14 @@ var editor = (function() {
 		italicButton = textOptions.querySelector( '.italic' );
 		italicButton.onclick = onItalicClick;
 
+		strikeButton = textOptions.querySelector( '.strike' );
+		strikeButton.onclick = onStrikeClick;
+
 		quoteButton = textOptions.querySelector( '.quote' );
 		quoteButton.onclick = onQuoteClick;
+
+		codeButton = textOptions.querySelector( '.code' );
+		codeButton.onclick = onCodeClick;
 
 		urlButton = textOptions.querySelector( '.url' );
 		urlButton.onmousedown = onUrlClick;
@@ -130,6 +139,18 @@ var editor = (function() {
 			italicButton.className = "italic"
 		}
 
+		if ( hasNode( currentNodeList, 'STRIKE') ) {
+			strikeButton.className = "strike active"
+		} else {
+			strikeButton.className = "strike"
+		}
+
+		if ( hasNode( currentNodeList, 'CODE') ) {
+			codeButton.className = "code icon-code active"
+		} else {
+			codeButton.className = "code icon-code"
+		}
+
 		if ( hasNode( currentNodeList, 'BLOCKQUOTE') ) {
 			quoteButton.className = "quote active"
 		} else {
@@ -167,7 +188,6 @@ var editor = (function() {
 			element = element.parentNode;
 
 			if ( element.nodeName === 'A' ) {
-				console.log( element.href );
 				nodeNames.url = element.href;
 			}
 		}
@@ -205,6 +225,10 @@ var editor = (function() {
 		document.execCommand( 'italic', false );
 	}
 
+	function onStrikeClick() {
+		document.execCommand( 'strikeThrough', false );
+	}
+
 	function onQuoteClick() {
 
 		var nodeNames = findNodes( window.getSelection().focusNode );
@@ -213,6 +237,17 @@ var editor = (function() {
 			document.execCommand( 'formatBlock', false, 'p' );
 		} else {
 			document.execCommand( 'formatBlock', false, 'blockquote' );
+		}
+	}
+
+	function onCodeClick() {
+
+		var nodeNames = findNodes( window.getSelection().focusNode );
+
+		if ( hasNode( nodeNames, 'CODE' ) ) {
+			document.execCommand( 'formatBlock', false, 'p' );
+		} else {
+			document.execCommand( 'formatBlock', false, 'code' );
 		}
 	}
 
@@ -283,6 +318,14 @@ var editor = (function() {
 	function rehighlightLastSelection() {
 
 		window.getSelection().addRange( lastSelection );
+	}
+
+	// Keyboard Shortcuts
+	function initShortcuts() {
+		key('backspace, delete', function(e) {
+			console.log(e);
+			e.preventDefault();
+		});
 	}
 
 	function inflate( string ) {

@@ -5,7 +5,7 @@
 
 		<!-- MISC/META -->
 		<title> ZenPen ~ Minimal Distraction, Maximim Zen </title>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
 		<meta name="description" content="Zenpen - A minimal web based text editor, for the modern man.">
 
 		<!-- CSS -->
@@ -15,10 +15,11 @@
 
 		<!-- LIBS -->
 		<script src="js/libs/head.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
 		<!-- JS loading in footer -->
 
-    </head>
+  </head>
 
 	<body class="yin">
 
@@ -45,7 +46,9 @@
 						<input class="url-input" type="text" placeholder="Type or Paste URL here"/>
 						<button class="bold">b</button>
 						<button class="italic"><i>i</i></button>
+						<button class="strike"><del>s</del></button>
 						<button class="quote">&rdquo;</button>
+						<button class="code icon-code"></button>
 					</span>
 				</span>
 			</div>
@@ -112,6 +115,8 @@
 				"js/libs/fullScreen.js",
 				"js/libs/rawinflate.js",
 				"js/libs/rawdeflate.js",
+				"js/libs/keymaster.js",
+				"js/libs/underscore.js",
 				"js/utils.js",
 				"js/ui.js",
 				"js/editor.js",

@@ -299,7 +299,7 @@ article a:hover {
 	margin-top: -46px;
 	z-index: 1000;
 	padding: 5px 4px 5px 5px;
-	width: 125px;
+	width: 185px;
 	height: 40px;
 
 	-webkit-transition: all 300ms ease-in-out;
@@ -314,7 +314,10 @@ article a:hover {
 	margin-left: -137px;
 }
 
-.options.url-mode .bold, .options.url-mode .italic, .options.url-mode .quote {
+.options.url-mode .bold,
+.options.url-mode .italic,
+.options.url-mode .quote,
+.options.url-mode .strike {
 	width: 0px;
 	overflow: hidden;
 	margin-right: 0px;
