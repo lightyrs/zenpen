@@ -7,7 +7,7 @@
 		<title> ZenPen ~ Minimal Distraction, Maximim Zen </title>
         <meta charset="utf-8">
 		<meta name="description" content="Zenpen - A minimal web based text editor, for the modern man.">
-        
+
 		<!-- CSS -->
 		<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href="css/style.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 
 		<!-- LIBS -->
 		<script src="js/libs/head.min.js"></script>
-		
+
 		<!-- JS loading in footer -->
 
     </head>
@@ -41,7 +41,7 @@
 			<div class="options">
 				<span class="no-overflow">
 					<span class="lengthen">
-						<button class="url useicons">&#xe001;</button>
+						<button class="icon-link"></button>
 						<input class="url-input" type="text" placeholder="Type or Paste URL here"/>
 						<button class="bold">b</button>
 						<button class="italic"><i>i</i></button>
@@ -55,22 +55,10 @@
 
 			<div class="wrapper">
 				<div class="top">
-					<button class="fullscreen useicons">
-						&#xe006;
-					</buttom>
-
-					<button class="color-flip useicons">
-						&#xe000;
-					</button>
-
-					<button class="target useicons">
-						&#xe002;
-					</button>
-
-					<button class="link useicons">
-						&#xe001;
-					</button>
-
+					<button class="icon-expand"></button>
+					<button class="icon-contrast"></button>
+					<button class="icon-target"></button>
+					<button class="icon-link share"></button>
 				</div>
 
 				<div class="bottom">
@@ -86,7 +74,7 @@
 		</div>
 
 		<section>
-			
+
 			<header contenteditable="true" class="header">
 				This is ZenPen
 			</header>
@@ -120,7 +108,7 @@
 		<!-- JS -->
 		<script type="text/javascript">
 
-			// Load required scripts.	
+			// Load required scripts.
 			head.js( "js/libs/fullScreen.js",
 				"js/libs/rawinflate.js",
 				"js/libs/rawdeflate.js",
@@ -128,7 +116,7 @@
 				"js/ui.js",
 				"js/editor.js",
 	        	function(){
-	            	
+
 	            	// Initiate ZenPen
 	            	editor.init();
 	    			ui.init();

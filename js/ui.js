@@ -11,7 +11,7 @@ var ui = (function() {
 	var darkLayout = false;
 
 	function init() {
-		
+
 		bindElements();
 
 		wordCountActive = false;
@@ -26,7 +26,7 @@ var ui = (function() {
 	function loadState() {
 
 		// Activate word counter
-		if ( localStorage['wordCount'] && localStorage['wordCount'] !== "0") {			
+		if ( localStorage['wordCount'] && localStorage['wordCount'] !== "0") {
 			wordCountValue = parseInt(localStorage['wordCount']);
 			wordCountElement.value = localStorage['wordCount'];
 			wordCounter.className = "word-counter active";
@@ -46,7 +46,7 @@ var ui = (function() {
 	}
 
 	function saveState() {
-		
+
 		localStorage[ 'darkLayout' ] = darkLayout;
 		localStorage[ 'wordCount' ] = wordCountElement.value;
 	}
@@ -57,14 +57,14 @@ var ui = (function() {
 		body = document.body;
 
 		// UI element for color flip
-		colorLayoutElement = document.querySelector( '.color-flip' );
+		colorLayoutElement = document.querySelector( '.icon-contrast' );
 		colorLayoutElement.onclick = onColorLayoutClick;
 
 		// UI element for full screen
-		screenSizeElement = document.querySelector( '.fullscreen' );
+		screenSizeElement = document.querySelector( '.icon-expand' );
 		screenSizeElement.onclick = onScreenSizeClick;
 
-		targetElement = document.querySelector( '.target ');
+		targetElement = document.querySelector( '.icon-target ');
 		targetElement.onclick = onTargetClick;
 
 		document.addEventListener( "fullscreenchange", function () {
@@ -74,7 +74,7 @@ var ui = (function() {
 		}, false);
 
 		// UI elements for save/share
-		shareElement = document.querySelector( '.link' );
+		shareElement = document.querySelector( '.icon-link.share' );
 		shareElement.onclick = onShareClick;
 
 		// Overlay when modals are active
@@ -113,12 +113,12 @@ var ui = (function() {
 
 	function enterFullscreen() {
 		document.body.requestFullscreen( Element.ALLOW_KEYBOARD_INPUT );
-		screenSizeElement.innerHTML = shrinkScreenIcon;	
+		screenSizeElement.innerHTML = shrinkScreenIcon;
 	}
 
 	function exitFullscreen() {
 		document.exitFullscreen();
-		screenSizeElement.innerHTML = expandScreenIcon;	
+		screenSizeElement.innerHTML = expandScreenIcon;
 	}
 
 	function onColorLayoutClick( event ) {
@@ -150,10 +150,10 @@ var ui = (function() {
 	}
 
 	function onWordCountKeyUp( event ) {
-		
+
 		if ( event.keyCode === 13 ) {
 			event.preventDefault();
-			
+
 			setWordCount( parseInt(this.value) );
 
 			removeOverlay();

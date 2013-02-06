@@ -10,7 +10,7 @@ var editor = (function() {
 
 		lastRange = 0;
 		bindElements();
-		
+
 		// Something is being passed via URL
 		if ( !isCleanSlate() ) {
 
@@ -67,7 +67,7 @@ var editor = (function() {
 		quoteButton = textOptions.querySelector( '.quote' );
 		quoteButton.onclick = onQuoteClick;
 
-		urlButton = textOptions.querySelector( '.url' );
+		urlButton = textOptions.querySelector( '.icon-link' );
 		urlButton.onmousedown = onUrlClick;
 
 		urlInput = textOptions.querySelector( '.url-input' );
@@ -79,7 +79,7 @@ var editor = (function() {
 
 		var selection = window.getSelection();
 
-		if ( event.target.className === "url-input" || event.target.classList.contains( "url" ) ) {
+		if ( event.target.className === "url-input" || event.target.classList.contains( "icon-link" ) ) {
 			return;
 		}
 
@@ -88,7 +88,7 @@ var editor = (function() {
 
 			onSelectorBlur();
 		}
-		
+
 		// Text is selected
 		if ( selection.isCollapsed === false ) {
 
@@ -99,7 +99,7 @@ var editor = (function() {
 
 				var range = selection.getRangeAt(0);
 				var boundary = range.getBoundingClientRect();
-				
+
 				updateBubbleStates();
 
 				// Show the ui bubble
@@ -137,14 +137,14 @@ var editor = (function() {
 		}
 
 		if ( hasNode( currentNodeList, 'A') ) {
-			urlButton.className = "url useicons active"
+			urlButton.className = "icon-link active"
 		} else {
-			urlButton.className = "url useicons"
+			urlButton.className = "icon-link"
 		}
 	}
 
 	function onSelectorBlur() {
-		
+
 		textOptions.className = "text-options fade";
 		setTimeout( function() {
 
@@ -181,7 +181,7 @@ var editor = (function() {
 	}
 
 	function saveState( event ) {
-		
+
 		localStorage[ 'header' ] = headerField.innerHTML;
 		localStorage[ 'content' ] = contentField.innerHTML;
 	}
@@ -208,7 +208,7 @@ var editor = (function() {
 	function onQuoteClick() {
 
 		var nodeNames = findNodes( window.getSelection().focusNode );
-		
+
 		if ( hasNode( nodeNames, 'BLOCKQUOTE' ) ) {
 			document.execCommand( 'formatBlock', false, 'p' );
 		} else {
@@ -242,7 +242,7 @@ var editor = (function() {
 				urlInput.focus();
 
 			}, 10)
-			
+
 		} else {
 
 			optionsBox.className = 'options';
