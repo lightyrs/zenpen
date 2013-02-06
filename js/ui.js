@@ -4,7 +4,6 @@ var ui = (function() {
 
 	var article, wordCountValue, wordCountBox, wordCountElement, wordCounter, wordCounterProgress;
 
-
 	var expandScreenIcon = '&#xe006;';
 	var shrinkScreenIcon = '&#xe005;';
 
@@ -57,14 +56,14 @@ var ui = (function() {
 		body = document.body;
 
 		// UI element for color flip
-		colorLayoutElement = document.querySelector( '.icon-contrast' );
+		colorLayoutElement = document.querySelector( '.color-flip' );
 		colorLayoutElement.onclick = onColorLayoutClick;
 
 		// UI element for full screen
-		screenSizeElement = document.querySelector( '.icon-expand' );
+		screenSizeElement = document.querySelector( '.fullscreen' );
 		screenSizeElement.onclick = onScreenSizeClick;
 
-		targetElement = document.querySelector( '.icon-target ');
+		targetElement = document.querySelector( '.target ');
 		targetElement.onclick = onTargetClick;
 
 		document.addEventListener( "fullscreenchange", function () {
@@ -74,7 +73,7 @@ var ui = (function() {
 		}, false);
 
 		// UI elements for save/share
-		shareElement = document.querySelector( '.icon-link.share' );
+		shareElement = document.querySelector( '.link' );
 		shareElement.onclick = onShareClick;
 
 		// Overlay when modals are active

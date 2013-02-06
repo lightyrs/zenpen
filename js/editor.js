@@ -67,7 +67,7 @@ var editor = (function() {
 		quoteButton = textOptions.querySelector( '.quote' );
 		quoteButton.onclick = onQuoteClick;
 
-		urlButton = textOptions.querySelector( '.icon-link' );
+		urlButton = textOptions.querySelector( '.url' );
 		urlButton.onmousedown = onUrlClick;
 
 		urlInput = textOptions.querySelector( '.url-input' );
@@ -79,7 +79,7 @@ var editor = (function() {
 
 		var selection = window.getSelection();
 
-		if ( event.target.className === "url-input" || event.target.classList.contains( "icon-link" ) ) {
+		if ( event.target.className === "url-input" || event.target.classList.contains( "url" ) ) {
 			return;
 		}
 
@@ -137,9 +137,9 @@ var editor = (function() {
 		}
 
 		if ( hasNode( currentNodeList, 'A') ) {
-			urlButton.className = "icon-link active"
+			urlButton.className = "url icon-link active"
 		} else {
-			urlButton.className = "icon-link"
+			urlButton.className = "url icon-link"
 		}
 	}
 

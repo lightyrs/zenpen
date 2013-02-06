@@ -41,7 +41,7 @@
 			<div class="options">
 				<span class="no-overflow">
 					<span class="lengthen">
-						<button class="icon-link"></button>
+						<button class="url icon-link"></button>
 						<input class="url-input" type="text" placeholder="Type or Paste URL here"/>
 						<button class="bold">b</button>
 						<button class="italic"><i>i</i></button>
@@ -55,10 +55,10 @@
 
 			<div class="wrapper">
 				<div class="top">
-					<button class="icon-expand"></button>
-					<button class="icon-contrast"></button>
-					<button class="icon-target"></button>
-					<button class="icon-link share"></button>
+					<button class="fullscreen icon-expand"></button>
+					<button class="color-flip icon-contrast"></button>
+					<button class="target icon-target"></button>
+					<button class="link icon-link"></button>
 				</div>
 
 				<div class="bottom">
@@ -107,21 +107,21 @@
 
 		<!-- JS -->
 		<script type="text/javascript">
-
 			// Load required scripts.
-			head.js( "js/libs/fullScreen.js",
+			head.js(
+				"js/libs/fullScreen.js",
 				"js/libs/rawinflate.js",
 				"js/libs/rawdeflate.js",
 				"js/utils.js",
 				"js/ui.js",
 				"js/editor.js",
-	        	function(){
 
-	            	// Initiate ZenPen
-	            	editor.init();
-	    			ui.init();
-	            }
-	        );
-        </script>
+	      function(){
+					// Initiate ZenPen
+	        editor.init();
+	    		ui.init();
+	      }
+	    );
+    </script>
 	</body>
 </html>
